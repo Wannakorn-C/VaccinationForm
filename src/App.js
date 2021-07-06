@@ -1,9 +1,13 @@
+//styled components
+import {StyledContainer} from './components/Styles';
+
 
 function App() {
   return (
-    <div className="App">
+    <StyledContainer> 
       <p>Hello world</p>
-    </div>
+    </StyledContainer>
+    
   );
 }
 
