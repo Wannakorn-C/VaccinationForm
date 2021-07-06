@@ -1,3 +1,5 @@
+//Pages
+import Home from './pages/Home';
 //styled components
 import {StyledContainer} from './components/Styles';
 
@@ -5,7 +7,7 @@ import {StyledContainer} from './components/Styles';
 function App() {
   return (
     <StyledContainer> 
-      <p>Hello world</p>
+      <Home/>
     </StyledContainer>
     
   );
