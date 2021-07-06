@@ -14,6 +14,8 @@ import Logo from './../assets/VaccineLogo.png'
 //Fromik
 import {Formik,Form} from 'formik';
 import {TextInput} from './../components/FormLib';
+//icons
+import {FiMail,FiLock} from 'react-icons/fi'
 
 const Login =() =>{
     return(
@@ -29,12 +31,14 @@ const Login =() =>{
                                 type="text"
                                 label="Email Address"
                                 placeholder="fern.1502@example.com"
+                                icon={<FiMail/>}
                             />
                             <TextInput
                                 name="password"
                                 type="password"
                                 label="Password"
                                 placeholder="*********"
+                                icon={<FiLock/>}
                                 
                             />
                             <ButtonGroup>

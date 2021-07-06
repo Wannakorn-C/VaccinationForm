@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 //Background
-import background from './../assets/Background.png';
+import background from './../assets/VaccineBackground.png';
 //React router
 import {Link} from 'react-router-dom';
 
@@ -84,7 +84,8 @@ export const StyledTextInput =styled.input`
      padding-left: 50px;
      font-size: 17px;
      letter-spacing: 1px;
-     color: ${colors.light2};
+     color: ${colors.dark1};
+     background-color: ${colors.light2}
      border: 0;
      outline: 0;
      display: block;
@@ -126,4 +127,13 @@ export const StyledFormButton = styled.button`
         color: ${colors.primary};
         cursor: pointer;
     }
+`;
+//Icons
+export const StyledIcon = styled.p`
+        color: ${colors.dark1};
+        position: absolute;
+        font-size: 21px;
+        top: 35px;
+        ${(props) => props.right && `right: 15px;`}
+        ${(props) => !props.right && `left: 15px;`}
 `;
