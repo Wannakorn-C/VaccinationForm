@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 //Background
 import background from './../assets/VaccineBackground.png';
+//React router
+import {Link} from 'react-router-dom';
 
 export const colors ={
-    primary:"#080808",
-    theme:"#BE185D",
+    primary:"#fff",
+    theme:"#18ACBE",
     light1:"#F3F4F6",
     light2:"#E5E7EB",
     dark1:"#1F2937",
@@ -48,4 +50,30 @@ export const Avatar= styled.div`
      background-size: cover;
      background-position: center; 
      margin: auto;
+`;
+export const StyledButton =styled(Link)`
+     padding: 10px;
+     width: 150px;
+     background-color: transparent;
+     font-size: 16px;
+     border :3px solid ${colors.primary};
+     border-radius: 25px;
+     color: ${colors.primary};
+     text-decoration: none;
+     text-align: center;
+     transition: ease-in-out 0.3s;
+
+     &:hover{
+         background-color:${colors.primary};
+         color: ${colors.theme};
+         cursor: pointer;
+     }
+
+
+`;
+export const ButtonGroup =styled.div`
+     display: flex;
+     justify-content: space-around;
+     flex-direction: row;
+     margin-top: 25px;
 `;
