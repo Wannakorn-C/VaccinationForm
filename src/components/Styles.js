@@ -62,6 +62,7 @@ export const StyledButton =styled(Link)`
      text-decoration: none;
      text-align: center;
      transition: ease-in-out 0.3s;
+     outline: 0;
 
      &:hover{
          background-color:${colors.primary};
@@ -121,6 +122,7 @@ export const StyledFormButton = styled.button`
     border-radius: 25px;
     color: ${colors.theme};
     transition: ease-in-out 0.3s;
+    outline: 0;
 
     &:hover{
         background-color:${colors.theme};
@@ -128,6 +130,34 @@ export const StyledFormButton = styled.button`
         cursor: pointer;
     }
 `;
+
+export const ErrorMsg = styled.div`
+    font-size: 11px;
+    color: ${colors.red};
+    margin-top: -5px;
+    margin-bottom: 10px;
+    text-align: left;
+`;
+
+export const ExtraText = styled.p`
+    font-size:${(props) => props.size}px;
+    text-align: center;
+    color: ${(props) => (props.color? props.color:colors.dark2)}
+    padding: 2px;
+    margin-top: 10px;
+`;
+export const TextLink =styled(Link)`
+    text-decoration: none;
+    color: ${colors.theme};
+    transition: ease-in-out 0.3s;
+
+    &:hover{
+        text-decoration: umderline;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+`;
+    
 //Icons
 export const StyledIcon = styled.p`
         color: ${colors.dark1};
