@@ -1,6 +1,7 @@
 //Pages
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 //styled components
 import {StyledContainer} from './components/Styles';
 //Loader css
@@ -16,7 +17,7 @@ function App() {
   return (
     <Router>
     <StyledContainer> 
-      <Login/>
+      <Signup/>
     </StyledContainer>
     </Router>
     
