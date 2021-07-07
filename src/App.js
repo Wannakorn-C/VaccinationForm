@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 //styled components
 import {StyledContainer} from './components/Styles';
+//Loader css
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import {
   BrowserRouter as Router,
   Switch,
