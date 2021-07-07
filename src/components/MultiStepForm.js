@@ -6,8 +6,14 @@ import Confirm from './../pages/Confirm';
 import Success from './../pages/Success'
 
 const defaultData ={
-    firstName:"",
-    lastName:""
+    fullname:"",
+    idcard:"",
+    dateOfbirth:"",
+    phonenumber:"",
+    email:"",
+    province:"",
+    date:"",
+    
 };
 const steps=[
     {id:'Register'},
@@ -19,15 +25,18 @@ export const MultiStepForm = () => {
     const[formData,setForm] = useForm(defaultData);
     const {step,navigation} = useStep({
         steps,
-        initialStep:0
+        initialStep:1
     });
+
+    const props={formData,setForm,navigation}
+
     switch(step.id){
         case "Register":
-            return <Register/>
+            return <Register {...props}/>
         case "Confirm":
-            return<Confirm/>
+            return<Confirm {...props}/>
         case "Success":
-            return<Success/>
+            return<Success {...props}/>
     }
 
     

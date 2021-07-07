@@ -7,8 +7,6 @@ import {StyledTextInput,
     StyledTitle,
     colors,
     ButtonGroup,
-    ExtraText,
-    TextLink
 } from './../components/Styles';
 
 import Logo from './../assets/VaccineLogo.png';
@@ -18,11 +16,15 @@ import {Formik,Form} from 'formik';
 import {TextInput} from './../components/FormLib';
 import * as Yup from 'yup';
 //icons
-import {FiMail,FiMap,FiUser,FiCalendar,FiPhone,FiCreditCard} from 'react-icons/fi';
+import {FiMail,FiMapPin,FiUser,FiCalendar,FiPhone,FiCreditCard,FiGift} from 'react-icons/fi';
 //Loader
-import Loader from 'react-loader-spinner';
 
-const Signup =() =>{
+
+const Signup =({formData,setForm,navigation}) =>{
+
+    const{fullname,idcard,dateOfbirth,phonenumber,email,province,date} = formData;
+    
+
     return(
        <div>
            <StyledFormArea>
@@ -30,37 +32,28 @@ const Signup =() =>{
                <StyledTitle color={colors.theme} size={30}>Register</StyledTitle>
                 <Formik
                 initialValues={{
-                    email:"",
-                    date:"",
-                    name:"",
+                    fullname:"",
+                    idcard:"",
+                    dateOfbirth:"",
                     phonenumber:"",
+                    email:"",
                     province:"",
-                    idcard:""
+                    date:"",
                 }}
-                validationSchema={
-                    Yup.object({
-                        email: Yup.string()
-                        .email("Invalid email address")
-                        .required("Required"),
-                        name:Yup.string().required("Required"),
-                        phonenumber:Yup.string().required("Required"),
-                        date:Yup.date().required("Required"),
-                        province:Yup.string().required("Required"),
-                        idcard:Yup.string().required("Required")
-                    })
-                }
                 onSubmit={(values,{setSubmitting}) =>{
                     console.log(values);
                 }}
                 >
-                    {({isSubmitting})=>(
+                    {({})=>(
                         <Form>
                             <TextInput 
-                                name="name"
+                                name="fullname"
                                 type="text"
                                 label="Full Name"
                                 placeholder="Enter Your Name"
                                 icon={<FiUser/>}
+                                value={fullname}
+                                onChange={setForm}
                             />
                             <TextInput 
                                 name="idcard"
@@ -68,13 +61,16 @@ const Signup =() =>{
                                 label="IDCard"
                                 placeholder="Enter Your IDCard Number"
                                 icon={<FiCreditCard/>}
+                                value={idcard}
+                                onChange={setForm}
                             />
                             <TextInput 
-                                name="email"
-                                type="text"
-                                label="Email Address"
-                                placeholder="Enter Your Email Address"
-                                icon={<FiMail/>}
+                                name="dateOfbirth"
+                                type="date"
+                                label="Date Of Birth"
+                                icon={<FiGift/>}
+                                value={dateOfbirth}
+                                onChange={setForm}
                             />
                             <TextInput 
                                 name="phonenumber"
@@ -82,35 +78,42 @@ const Signup =() =>{
                                 label="Phone Number"
                                 placeholder="Enter Your Phone Number"
                                 icon={<FiPhone/>}
+                                value={phonenumber}
+                                onChange={setForm}
+                            />
+                            <TextInput 
+                                name="email"
+                                type="text"
+                                label="Email Address"
+                                placeholder="Enter Your Email Address"
+                                icon={<FiMail/>}
+                                value={email}
+                                onChange={setForm}
                             />
                             <TextInput 
                                 name="province"
                                 type="text"
                                 label="Province"
                                 placeholder="Enter Your Province"
-                                icon={<FiMap/>}
+                                icon={<FiMapPin/>}
+                                value={province}
+                                onChange={setForm}
                             />
                             <TextInput 
                                 name="date"
                                 type="date"
                                 label="Date"
                                 icon={<FiCalendar/>}
+                                value={date}
+                                onChange={setForm}
                             />
-                            
-                            
-                                
-                            
-                            
                             <ButtonGroup>
-                                {!isSubmitting && (<StyledFormButton type="submit">Next</StyledFormButton>)}
-                                {isSubmitting &&(
-                                    <Loader
-                                        type="ThreeDots"
-                                        color={colors.theme}
-                                        height={49}
-                                        width={100}
-                                    />
-                                )}
+                                <StyledFormButton 
+                                type="submit"
+                                to="/confirm"
+                                onClick={()=>navigation.next()}
+                                
+                                >Next</StyledFormButton>
                             </ButtonGroup>
                         </Form>
                     )}
