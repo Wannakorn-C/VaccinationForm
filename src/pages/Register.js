@@ -20,7 +20,7 @@ import {FiMail,FiMapPin,FiUser,FiCalendar,FiPhone,FiCreditCard,FiGift} from 'rea
 //Loader
 
 
-const Signup =({formData,setForm,navigation}) =>{
+const Register =({formData,setForm,navigation}) =>{
 
     const{fullname,idcard,dateOfbirth,phonenumber,email,province,date} = formData;
     
@@ -44,7 +44,7 @@ const Signup =({formData,setForm,navigation}) =>{
                     console.log(values);
                 }}
                 >
-                    {({})=>(
+                    {({isSubmitting})=>(
                         <Form>
                             <TextInput 
                                 name="fullname"
@@ -122,4 +122,4 @@ const Signup =({formData,setForm,navigation}) =>{
        </div>
     )
 }
-export default Signup;
+export default Register;

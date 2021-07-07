@@ -112,6 +112,11 @@ export const StyledFormArea = styled.div`
      text-align: center;
      padding: 45px 55px;
 `;
+export const StyledFormArea2 = styled.div`
+     background-color: ${props => props.bg || colors.light1};
+     text-align: left;
+     padding: 45px 55px;
+`;
 
 export const StyledFormButton = styled.button`
     padding: 10px;

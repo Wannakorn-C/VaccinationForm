@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
+
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetail from '@material-ui/core/AccordionDetails';
@@ -7,8 +7,23 @@ import AccordionDetail from '@material-ui/core/AccordionDetails';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-export const Confirm = ({formData}) => {
+//styled components
+import {StyledTextInput,
+    StyledFormArea2,
+    StyledFormButton,
+    StyledLabel,
+    Avatar,
+    StyledTitle,
+    colors,
+    ButtonGroup,
+} from './../components/Styles';
+
+import Logo from './../assets/VaccineLogo.png';
+
+export const Confirm = ({formData,navigation}) => {
+    const {go}=navigation;
     const {
         fullname,
         idcard,
@@ -19,9 +34,10 @@ export const Confirm = ({formData}) => {
         date   
         }=formData;
     return (
-        <Container maxWidth='sm'>
-            <h3>Confirm</h3>
-            <RenderAccordion  summary= "User information" details={[
+        <StyledFormArea2>
+            <Avatar image={Logo}/>
+            <StyledTitle color={colors.theme} size={30}>Confirm</StyledTitle>
+            <RenderAccordion  summary= "Please Check Your Information" go={go} details={[
                 {'Full Name': fullname}, 
                 {'ID Card': idcard},
                 {'Date Of Birth': dateOfbirth},
@@ -30,19 +46,34 @@ export const Confirm = ({formData}) => {
                 {'Province':  province},
                 {'Date': date },
             ]}/>
-        </Container>
+            <ButtonGroup>
+                <StyledFormButton 
+                    type="submit"
+                    to="/success"
+                    onClick={() => go('Success')}   
+                >Submit</StyledFormButton>
+            </ButtonGroup>
+        </StyledFormArea2>
     );
 };
-const RenderAccordion =({summary,details}) => (
+const RenderAccordion =({summary,details,go}) => (
     <Accordion>
-        <AccordionSummary>{summary}</AccordionSummary>
+        <AccordionSummary
+            expandIcon={<ExpandMoreIcon/>}
+        >{summary}</AccordionSummary>
         <AccordionDetail>
             <div>
              {details.map((data,index)=>{
                  const objKey = Object.keys(data)[0];
                  const objValue = data[Object.keys(data)[0]];
-                 return <ListItemText>{`${objKey}: ${objValue}`}</ListItemText>
+                 return <ListItemText key={index}>{`${objKey}: ${objValue}`}</ListItemText>
              })}
+             <IconButton
+                component= "span"
+                to="/register"
+                onClick={() => go('Register')}
+                ><EditIcon/>
+            </IconButton>
             </div>
         </AccordionDetail>
     </Accordion>
