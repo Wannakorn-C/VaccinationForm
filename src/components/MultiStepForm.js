@@ -4,6 +4,8 @@ import {useForm,useStep} from 'react-hooks-helper';
 import Register from './../pages/Register';
 import Confirm from './../pages/Confirm';
 import Success from './../pages/Success'
+//yup
+import * as Yup from 'yup';
 
 const defaultData ={
     fullname:"",
@@ -13,6 +15,7 @@ const defaultData ={
     email:"",
     province:"",
     date:"",
+    
     
 };
 const steps=[
