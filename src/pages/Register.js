@@ -110,8 +110,8 @@ const Register =({formData,setForm,navigation}) =>{
                             <ButtonGroup>
                                 <StyledFormButton 
                                 type="submit"
-                                to="/confirm"
                                 onClick={()=>navigation.next()}
+                                to="/confirm"
                                 
                                 >Next</StyledFormButton>
                             </ButtonGroup>

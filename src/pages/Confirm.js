@@ -49,8 +49,8 @@ export const Confirm = ({formData,navigation}) => {
             <ButtonGroup>
                 <StyledFormButton 
                     type="submit"
-                    to="/success"
-                    onClick={() => go('Success')}   
+                    onClick={() => go('Success')} 
+                    to="/success"  
                 >Submit</StyledFormButton>
             </ButtonGroup>
         </StyledFormArea2>
@@ -70,8 +70,8 @@ const RenderAccordion =({summary,details,go}) => (
              })}
              <IconButton
                 component= "span"
-                to="/register"
                 onClick={() => go('Register')}
+                to="/register"
                 ><EditIcon/>
             </IconButton>
             </div>
